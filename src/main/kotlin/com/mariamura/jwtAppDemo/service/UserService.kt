@@ -3,8 +3,18 @@ package com.mariamura.jwtAppDemo.service
 import com.mariamura.jwtAppDemo.model.User
 import com.mariamura.jwtAppDemo.repository.impl.UserRepositoryImpl
 
-class UserService(userRepository: UserRepositoryImpl) {
-    private val userRepository: UserRepositoryImpl
+interface UserService {
+
+    fun register(user: User): User
+
+    fun getAll(): List<User>
+
+    fun getById(id: Int): User
+
+    fun getByUsername(username: String): User
+
+    fun delete(id: Long)
+    /*private val userRepository: UserRepositoryImpl
 
     init {
         this.userRepository = userRepository
@@ -27,5 +37,5 @@ class UserService(userRepository: UserRepositoryImpl) {
 
     fun deleteById(id: Int?) {
         userRepository.deleteById(id)
-    }
+    }*/
 }

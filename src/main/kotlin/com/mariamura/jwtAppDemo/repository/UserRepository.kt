@@ -1,15 +1,8 @@
 package com.mariamura.jwtAppDemo.repository
 
 import com.mariamura.jwtAppDemo.model.User
+import org.springframework.data.jpa.repository.JpaRepository
 
-interface UserRepository {
-    fun save(user: User?): User?
-
-    fun getById(id: Int?): User?
-
-    fun deleteById(id: Int?)
-
-    val all: List<Any?>?
-
-    fun update(user: User?): User?
+interface UserRepository: JpaRepository<User, Long> {
+    fun findByUsername(username: String): User
 }
