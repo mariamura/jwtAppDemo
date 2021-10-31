@@ -31,12 +31,13 @@ data class User(
     val created: Date,
 
     @OneToMany(cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
-    val events: List<Event>? = null
-) {
+    val events: List<Event>? = null,
+
     @ManyToMany
     @JoinTable(
         name = "users_roles",
         joinColumns = [JoinColumn(name = "user_id", referencedColumnName = "roles_id")]
     )
-    var roles: MutableList<Role> = mutableListOf()
-}
+    val roles: MutableList<Role> = mutableListOf()
+
+)
