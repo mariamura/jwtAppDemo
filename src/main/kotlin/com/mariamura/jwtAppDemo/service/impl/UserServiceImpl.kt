@@ -28,7 +28,7 @@ class UserServiceImpl @Autowired constructor(
 
         val registerUser =  user.copy(
             password = bCryptPasswordEncoder.encode(user.password),
-            roles = user.roles,
+            roles = userRoles,
             status = Status.ACTIVE
         )
 

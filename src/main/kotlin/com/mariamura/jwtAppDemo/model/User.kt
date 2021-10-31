@@ -38,6 +38,6 @@ data class User(
         name = "users_roles",
         joinColumns = [JoinColumn(name = "user_id", referencedColumnName = "roles_id")]
     )
-    val roles: MutableList<Role> = mutableListOf()
+    val roles: List<Role> = listOf()
 
 )
