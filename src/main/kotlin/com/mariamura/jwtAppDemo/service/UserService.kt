@@ -9,9 +9,9 @@ interface UserService {
 
     fun getAll(): List<User>
 
-    fun getById(id: Int): User
+    fun findById(id: Long): User
 
-    fun getByUsername(username: String): User
+    fun findByUsername(username: String): User
 
     fun delete(id: Long)
     /*private val userRepository: UserRepositoryImpl

@@ -35,19 +35,19 @@ class UserServiceImpl @Autowired constructor(
     }
 
     override fun getAll(): List<User> {
-        TODO("Not yet implemented")
+        return userRepository.findAll()
     }
 
-    override fun getById(id: Int): User {
-        TODO("Not yet implemented")
+    override fun findById(id: Long): User {
+        return userRepository.findById(id).orElse(null)
     }
 
-    override fun getByUsername(username: String): User {
-        TODO("Not yet implemented")
+    override fun findByUsername(username: String): User {
+        return userRepository.findByUsername(username)
     }
 
     override fun delete(id: Long) {
-        TODO("Not yet implemented")
+        userRepository.deleteById(id)
     }
 
     @Bean
