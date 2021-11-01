@@ -6,8 +6,6 @@ import com.mariamura.jwtAppDemo.model.User
 import com.mariamura.jwtAppDemo.repository.UserRepository
 import com.mariamura.jwtAppDemo.repository.impl.RoleRepository
 import com.mariamura.jwtAppDemo.service.UserService
-import org.slf4j.Logger
-import lombok.extern.slf4j.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
@@ -15,7 +13,6 @@ import org.springframework.stereotype.Service
 
 
 @Service
-@Slf4j
 class UserServiceImpl @Autowired constructor(
     private val userRepository: UserRepository,
     private val roleRepository: RoleRepository,
@@ -26,16 +23,15 @@ class UserServiceImpl @Autowired constructor(
         val roleUser = roleRepository.findByName("ROLE_USER")
         val userRoles: List<Role> = listOf(roleUser)
 
-        val registerUser =  user.copy(
+        val registerUser: User =  user.copy(
             password = bCryptPasswordEncoder.encode(user.password),
             roles = userRoles,
             status = Status.ACTIVE
         )
 
-        val registeredUser = userRepository.save(user)
+        userRepository.save(registerUser)
 
         return registerUser
-        //log.info("IN register - user: {} successfully registered", registeredUser)
     }
 
     override fun getAll(): List<User> {
