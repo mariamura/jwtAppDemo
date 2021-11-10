@@ -13,7 +13,7 @@ data class User(
     val id: Long,
 
     @Column(name = "username")
-    val name: String,
+    val username: String,
 
     @Column(name = "password")
     val password: String,

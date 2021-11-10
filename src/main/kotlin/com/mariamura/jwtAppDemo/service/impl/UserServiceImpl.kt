@@ -4,7 +4,7 @@ import com.mariamura.jwtAppDemo.model.Role
 import com.mariamura.jwtAppDemo.model.Status
 import com.mariamura.jwtAppDemo.model.User
 import com.mariamura.jwtAppDemo.repository.UserRepository
-import com.mariamura.jwtAppDemo.repository.impl.RoleRepository
+import com.mariamura.jwtAppDemo.repository.RoleRepository
 import com.mariamura.jwtAppDemo.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
